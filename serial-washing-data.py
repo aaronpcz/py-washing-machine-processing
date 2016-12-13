@@ -15,25 +15,12 @@ file_name = 'data/data_capture_' + time_for_file_name + '.txt'
 
 # writes a new line to file for data captured
 def write_to_file(accelro_data_sample, f):
+        accelro_data_sample += " Time: " + str(time.time())
         f.write(str(accelro_data_sample) + "\n")
 
 def handle_data(data, f):
         print(data)
         write_to_file(data, f)
-        # try:
-        #         electret_peak_sample = int(data)
-        #         write_to_file(electret_peak_sample, f)
-        #         if electret_peak_sample < 50:
-        #                 print("very quiet")
-        #         elif electret_peak_sample < 500:
-        #                 print("medium noise")
-        #         else:
-        #                 print("noisy")
-        # except ValueError:
-        #         print("error")
-        #         print(data)
-        # except:
-        #         print("generic error")
 
 def read_from_port(ser):
         # file for writing captured data
@@ -45,3 +32,22 @@ def read_from_port(ser):
 
 thread = threading.Thread(target=read_from_port, args=(serial_port,))
 thread.start()
+
+
+
+
+# example processing
+# try:
+#         electret_peak_sample = int(data)
+#         write_to_file(electret_peak_sample, f)
+#         if electret_peak_sample < 50:
+#                 print("very quiet")
+#         elif electret_peak_sample < 500:
+#                 print("medium noise")
+#         else:
+#                 print("noisy")
+# except ValueError:
+#         print("error")
+#         print(data)
+# except:
+#         print("generic error")
