@@ -15,7 +15,7 @@ file_name = 'data/data_capture_' + time_for_file_name + '.txt'
 
 # writes a new line to file for data captured
 def write_to_file(accelro_data_sample, f):
-        accelro_data_sample += " Time: " + str(time.time())
+        accelro_data_sample = " Time: " + str(time.time()) + " " + accelro_data_sample
         f.write(str(accelro_data_sample) + "\n")
 
 def handle_data(data, f):
