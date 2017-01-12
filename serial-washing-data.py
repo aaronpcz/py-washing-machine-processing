@@ -8,7 +8,7 @@ baud = 9600
 serial_port = serial.Serial(port, baud)
 
 # time required for file name
-time_format = "%H:%M:%S"
+time_format = "%H:%M:%S-%d/%m/%y"
 time_for_file_name = time.strftime(time_format)
 
 file_name = 'data/data_capture_' + time_for_file_name + '.txt'
